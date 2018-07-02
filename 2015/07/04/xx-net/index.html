@@ -1,0 +1,662 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="lesson," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="前言今年一月以来，GFW升级至2.0，这使得许多vpn失效，网民再次被高墙隔挡，连GoAgent这个翻墙神器都开始变得不稳定了，排查了一下原因，发现是内置的许多ip都已经被封锁，需要重新导入ip，那么这时就需要用到GoGo test 这类ip搜寻软件，导入可用的ip，GoAgent即可正常使用。 现在有一个项目，集成了GoAgent和GoGo test，使翻墙变得更加便捷，那就是XX-Net 主要">
+<meta name="keywords" content="lesson">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XX-Net爬梯子教程">
+<meta property="og:url" content="http://cyzus.github.io/2015/07/04/xx-net/index.html">
+<meta property="og:site_name" content="Cyzus&#39; Blog">
+<meta property="og:description" content="前言今年一月以来，GFW升级至2.0，这使得许多vpn失效，网民再次被高墙隔挡，连GoAgent这个翻墙神器都开始变得不稳定了，排查了一下原因，发现是内置的许多ip都已经被封锁，需要重新导入ip，那么这时就需要用到GoGo test 这类ip搜寻软件，导入可用的ip，GoAgent即可正常使用。 现在有一个项目，集成了GoAgent和GoGo test，使翻墙变得更加便捷，那就是XX-Net 主要">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2016-06-25T02:30:38.775Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="XX-Net爬梯子教程">
+<meta name="twitter:description" content="前言今年一月以来，GFW升级至2.0，这使得许多vpn失效，网民再次被高墙隔挡，连GoAgent这个翻墙神器都开始变得不稳定了，排查了一下原因，发现是内置的许多ip都已经被封锁，需要重新导入ip，那么这时就需要用到GoGo test 这类ip搜寻软件，导入可用的ip，GoAgent即可正常使用。 现在有一个项目，集成了GoAgent和GoGo test，使翻墙变得更加便捷，那就是XX-Net 主要">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> XX-Net爬梯子教程 | Cyzus' Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Cyzus' Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Do you bleed?</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                XX-Net爬梯子教程
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-07-04T09:00:00+08:00" content="2015-07-04">
+              2015-07-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Tech/" itemprop="url" rel="index">
+                    <span itemprop="name">Tech</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/07/04/xx-net/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/04/xx-net/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>今年一月以来，GFW升级至2.0，这使得许多vpn失效，网民再次被高墙隔挡，连<strong>GoAgent</strong>这个翻墙神器都开始变得不稳定了，排查了一下原因，发现是内置的许多ip都已经被封锁，需要重新导入ip，那么这时就需要用到<strong>GoGo test</strong> 这类ip搜寻软件，导入可用的ip，<strong>GoAgent</strong>即可正常使用。</p>
+<p>现在有一个项目，集成了GoAgent和GoGo test，使翻墙变得更加便捷，那就是XX-Net</p>
+<h3 id="主要特性"><a href="#主要特性" class="headerlink" title="主要特性"></a>主要特性</h3><ul>
+<li>GoAgent 稳定快速</li>
+<li>Web界面，傻瓜易用</li>
+<li>内置了公共 appid, 上千可用ip, 开箱即用</li>
+<li>自动导入证书</li>
+<li>设置开机启动</li>
+<li>可设置自动升级</li>
+<li>支持导入、导出ip</li>
+<li>自定义扫描IP的线程和IP范围</li>
+</ul>
+<h3 id="平台支持情况"><a href="#平台支持情况" class="headerlink" title="平台支持情况"></a>平台支持情况</h3><ul>
+<li>Windows XP （需要 tcpip.sys 补丁, 比如用 tcp-z）</li>
+<li>Win7/8/10</li>
+<li>Ubuntu （不显示系统托盘）</li>
+<li>Debian （debian 8 php_proxy无法工作）</li>
+<li>Mac OS X(10.7; 10.8; 10.9; 10.10)</li>
+</ul>
+<h3 id="食用方法"><a href="#食用方法" class="headerlink" title="食用方法"></a>食用方法</h3><ul>
+<li><p>Windows下, 双击 start.lnk/start.vbs</p>
+<ul>
+<li>启动弹出浏览器： 访问 <a href="http://localhost:8085/" target="_blank" rel="external">http://localhost:8085/</a></li>
+<li>托盘图标：点击可弹出Web管理界面, 右键可显示常用功能菜单。</li>
+<li>Win7/8/10：提示请求管理员权限, 安装CA证书。请点击同意。</li>
+<li>推荐用Chrome浏览器, 安装SwichySharp, 可在swichysharp目录下找到插件和配置文件</li>
+<li>Firefox 需手动导入证书 data/goagent/CA.crt 启动后生成</li>
+</ul>
+</li>
+<li><p>Linux下, 执行 start.sh</p>
+<ul>
+<li>自动导入证书，需安装 libnss3-tools 包</li>
+<li>第一次启动, 请用sudo ./start.sh, 以安装CA证书</li>
+<li>配置http代理 localhost 8087, 勾选全部协议使用这个代理。</li>
+</ul>
+</li>
+<li><p>Mac下，双击 start.command</p>
+<ul>
+<li>会自动导入证书，如果还有提示非安全连接，请手动导入data/goagent/CA.crt证书</li>
+<li>命令行启动方式：./start.sh</li>
+</ul>
+</li>
+<li><p>服务端</p>
+<ul>
+<li>协议采用3.3的版本，请重新部署服务端，服务端兼容3.1.x/3.2.x的客户端</li>
+<li>虽然系统内置了公共appid, 还是建议部署自己的appid，公共appid限制看视频</li>
+</ul>
+</li>
+</ul>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>Github：<a href="https://github.com/cyzus/XX-Net" target="_blank">https://github.com/cyzus/XX-Net</a></p>
+<h3 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h3><ul>
+<li>XX-Net有爱作者</li>
+<li>GoAgent</li>
+<li>GoGo Test</li>
+<li>GoAgentfindip</li>
+<li>checkgoogleip</li>
+</ul>
+<blockquote>
+<p>若有疑问，欢迎回复</p>
+</blockquote>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/lesson/" rel="tag">#lesson</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/21/github-build-blog/" rel="next" title="傻瓜都可以利用github pages建博客">
+                <i class="fa fa-chevron-left"></i> 傻瓜都可以利用github pages建博客
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/07/14/copyright/" rel="prev" title="版权信息代码">
+                版权信息代码 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-570662ead8cbb94b" async = "async" ></script>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/07/04/xx-net/"
+           data-title="XX-Net爬梯子教程" data-url="http://cyzus.github.io/2015/07/04/xx-net/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Cyzus" />
+          <p class="site-author-name" itemprop="name">Cyzus</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/cyzus" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/cyzfiles" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要特性"><span class="nav-number">2.</span> <span class="nav-text">主要特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#平台支持情况"><span class="nav-number">3.</span> <span class="nav-text">平台支持情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#食用方法"><span class="nav-number">4.</span> <span class="nav-text">食用方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载地址"><span class="nav-number"></span> <span class="nav-text">下载地址</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#感谢"><span class="nav-number">1.</span> <span class="nav-text">感谢</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cyzus</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"cyzus"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
