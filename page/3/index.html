@@ -414,7 +414,9 @@
         
           
           2000多年前，有一个所向披靡的军团，骑着战马、举着兵戈，踏遍了东方大陆，第一次统一了中国，创建了一个当时最庞大的帝国，这个披着黑色战袍的军团所过之处，除了留下威震四方的壮举，还留下了令后人百思不得其解的谜团
-为了对大秦历史进行更深一步的了解，在中文课上我们观看了一部历史纪录片《复活的军团》。这部纪
+为了对大秦历史进行更深一步的了解，在中文课上我们观看了一部历史纪录片《复活的军团》。这部纪录片从文献记载、考古发现两方面入手，先是大胆猜想，再到严谨推敲，经过无数的考证检验，最后把一层一层揭开谜团的过程以及确信的答案展现给了我们。
+这一系列的纪录片以兵马俑的发现为开始，讨论了一个又一个随着兵马俑而来的谜团。兵马俑，这个神秘的地下军团，在史书上从无记载，军团里的士兵一个个稳健挺拔，他们的面容表情、所持武器、身着盔甲、排列方阵尽不相同，这1974年的发现，犹如死去两千年的军团，苏醒过来，震惊世界。他们会为我们解开无数困惑
+纪录片描述了一个宏广的大秦世界，从秦人使用的超越时代的兵器，到森严的排兵布阵，到浩大的长城工程，到秦军最后的归宿，都一一描述论证，所讲细节繁多，可相信其严谨性和真实度。时间跨度极大，从春秋开始壮大，战国开始繁荣，期间历经商鞅变法、长平之战，无不解释透彻。纪录片运用了
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -591,7 +593,8 @@
         
           
           We read about a short story in Todd’s class this Friday. It is called Hills Like White Elephants by Ernest Hemingway.
-This story is mainly telling abo
+This story is mainly telling about a conversation between an American and a girl at a Spanish station. The girl compared hills nearby to white elephants. They discussed an “operation” which the man wanted the girl to have. The author didn’t tell us what exactly the operation is, but we can try to fathom it according to the limited resource Hemingway gave.
+It is really hard to und
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -945,7 +948,16 @@ This story is mainly telling abo
 为了保护自己及网站的知识产权，相信站长们都要在文章末尾加上版权信息声明，下面是一组示例代码
 &lt;!-- 文章版权信息 --&gt;
     &lt;div class=&quot;copyright alert alert-success&quot;&gt;
-  
+        &lt;p&gt;
+             版权属于:
+             &lt;a href=&quot;http://cyzus.github.io/&quot;&gt;Cyzus&apos;Blog&lt;/a&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+             原文地址:
+             &lt;a href=&quot;{{site.url}}{{page.url}}&quot;&gt;{{site.url}}{{page.url}}&lt;/a&gt;            
+        &lt;/p&gt;
+
+        &lt;p&gt;转载时必须以链接形式注明原始出处及本声明。&
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1122,7 +1134,28 @@ This story is mainly telling abo
         
           
           前言今年一月以来，GFW升级至2.0，这使得许多vpn失效，网民再次被高墙隔挡，连GoAgent这个翻墙神器都开始变得不稳定了，排查了一下原因，发现是内置的许多ip都已经被封锁，需要重新导入ip，那么这时就需要用到GoGo test 这类ip搜寻软件，导入可用的ip，GoAgent即可正常使用。
-现
+现在有一个项目，集成了GoAgent和GoGo test，使翻墙变得更加便捷，那就是XX-Net
+主要特性
+GoAgent 稳定快速
+Web界面，傻瓜易用
+内置了公共 appid, 上千可用ip, 开箱即用
+自动导入证书
+设置开机启动
+可设置自动升级
+支持导入、导出ip
+自定义扫描IP的线程和IP范围
+
+平台支持情况
+Windows XP （需要 tcpip.sys 补丁, 比如用 tcp-z）
+Win7/8/10
+Ubuntu （不显示系统托盘）
+Debian （debian 8 php_proxy无法工作）
+Mac OS X(10.7; 10.8; 10.9; 10.10)
+
+食用方法
+Windows下, 双击 start.lnk/start.vbs
+
+启动弹出浏览器： 访问 http:/
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1299,7 +1332,10 @@ This story is mainly telling abo
         
           
           1.前言鉴于我自身建站经历，不熟悉各种编码语言，口袋里没有多少钱，却殷切希望拥有一个独立的个人博客，在翻阅了各种教程后，看完各种眼花缭乱的代码后，终于将这个网站在github pages上搞出来了。在此，我不希望大家都重蹈覆辙，为了方便大家，我在此为大家做一个傻瓜教程
-2.了解github说了那么多
+2.了解github说了那么多，首先得了解一下什么是github，GitHub是一个共享虚拟主机服务，用于存放使用Git版本控制的软件代码和内容项目(引自维基百科）。说白了github就是开发者的百度云（有人说是Facebook），用来存储或者共享自己写的代码，非常便利，是近年来很火爆的一个网站服务。
+3.为什么选择github?能看到我的这篇文章的道友应该都知道，为什么我们要在github上建站？
+github有一个很有爱的项目，叫做github pages，这个项目是给开发者建立一个私人页面，上面用来分享新颖的想法和自己写的代码，而且最主要的是，这个是免费而且没有空间流量限制的。这也就是我为什么放弃了自由度很高的，却需要支付高昂的主机费的wordpress，而转投了github pages阵营。
+那么废话少说，开始我
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1527,6 +1563,184 @@ This story is mainly telling abo
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cyzus.github.io/2009/07/25/20180705124619/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cyzus">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cyzus' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2009/07/25/20180705124619/" itemprop="url">
+                  20180705124619
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2009-07-25 12:46:19" itemprop="dateCreated datePublished" datetime="2009-07-25T12:46:19+08:00">2009-07-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-07-05 13:00:40" itemprop="dateModified" datetime="2018-07-05T13:00:40+08:00">2018-07-05</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LifeStyle/" itemprop="url" rel="index"><span itemprop="name">LifeStyle</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+飞去西宁2009.7.18星期六，多云12:20am现在我在飞机上，等着飞机起飞。我一会儿看看这儿，一会儿看看那儿，我什么都干不了，我觉得好无聊啊！2:30pm虽然我们的飞机早就起飞了，但是我还是觉得没意思，我想快点到青海西宁呀！好没意思啊！4:10pm呼，又是乱流，我觉得像过山车一样爽！要是有暖流的话，我敢肯定绝对会更爽，更刺激！啊！9:10pm六点多才到西宁。晚上吃羊肉串和面片。爽！
+西宁市区一日游2009.7.19星期日，冷8:00am一大早起来，我就觉得嘴巴好干。怪不得妈妈说这里天气好干，要喝多点水。哇！！好干呀！我得去喝水去喽！！！而且这里还有点冷哦！背唐诗:从军行王昌龄 唐大漠风尘日色昏，红旗半卷出辕门前军夜战  河北，已报生擒吐谷浑1:30pm今天我去了两个博物馆。第一个名字叫“青海省博物馆”，第二个叫“藏医药博物馆”。在青海省博物馆里，有说环湖自行车赛，有说藏毯，有说木雕，石刻，泥塑，金铜，还有唐卡。青海省博物馆里最感兴趣的是“金铜”，其中有一座雕像是如来出生时的造像，根据传说，是他出生时一手指天，一手指地，并且上下前后左右各行七步，步步生莲的造型，可爱极了。这个博物
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2009/07/25/20180705124619/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1574,7 +1788,7 @@ This story is mainly telling abo
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
