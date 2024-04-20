@@ -9,7 +9,7 @@ My research interest centers around facilitating meaningful communication betwee
 
 ## Publications
 
-- **THOUGHTSCULPT: Reasoning with Intermediate Revision and Search**
+- **THOUGHTSCULPT: Reasoning with Intermediate Revision and Search** \
 **Yizhou Chi**, Kevin Yang, Dan Klein \
 We present THOUGHTSCULPT, a general reasoning and search method for tasks with outputs that can be decomposed into components. THOUGHTSCULPT explores a search tree of potential solutions using Monte Carlo Tree Search (MCTS), building solutions one action at a time and evaluating according to any domain-specific heuristic, which in practice is often simply an LLM evaluator. 
 [[paper]](https://arxiv.org/abs/2404.05966)
