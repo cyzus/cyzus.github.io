@@ -15,8 +15,9 @@ We present THOUGHTSCULPT, a general reasoning and search method for tasks with o
 [[paper]](https://arxiv.org/abs/2404.05966)
 
 
-- **Dialogue-based clarification system for document retrieval** \
-**Yizhou Chi**, Jessy Lin, Kevin Lin \
+- **CLARINET: Augmenting Language Models to Ask Clarification Questions for Retrieval** \
+**Yizhou Chi**, Jessy Lin, Kevin Lin, Dan Klein \
+Users often make ambiguous requests that require clarification. We study the problem of asking clarification questions in an information retrieval setting, where systems often face ambiguous search queries and it is challenging to turn the uncertainty in the retrieval model into a natural language question. We present CLARINET, a system that asks informative clarification questions by choosing questions whose answers would maximize certainty in the correct candidate. Our approach works by augmenting a large language model (LLM) to condition on a retrieval distribution, finetuning end-to-end to generate the question that would have maximized the rank of the true candidate at each turn. When evaluated on a real-world retrieval dataset of users searching for books, our system outperforms traditional heuristics such as information gain on retrieval success by 17% and vanilla-prompted LLMs by 39% relative.
 *(Currently in submission)*
 
 
