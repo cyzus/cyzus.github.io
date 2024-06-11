@@ -33,7 +33,6 @@ We proposed an improved algorithm on Particle Swarm Optimization, capable of cla
 
 - **Among Agents** \
 The study introduces a text-based game environment, named AmongAgents, that mirrors the dynamics of "Among Us". Players act as crew members aboard a spaceship, tasked with identifying impostors who are sabotaging the ship and eliminating the crew. Within this environment, the behavior of simulated language agents is analyzed. The experiments involve diverse game sequences featuring different configurations of Crewmates and Impostor personality archetypes. Our work demonstrates that state-of-the-art large language models (LLMs) can effectively grasp the game rules and make decisions based on the current context. This work aims to promote further exploration of LLMs in goal-oriented games with incomplete information and complex action spaces, as these settings offer valuable opportunities to assess language model performance in socially driven scenarios.
-
 [[paper]](https://openreview.net/pdf?id=F4nIkAISjn)
 
 - **Interactive Flock Simulator** \
