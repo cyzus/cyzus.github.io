@@ -18,7 +18,7 @@
         "workbox-build": "^7.3.0"
     },
     "scripts": {
-        "start": "bundle exec jekyll serve",
+        "start": "bundle exec jekyll serve --skip-initial-build",
         "dev": "npm run build && npm run start",
         "build": "grunt && bundle exec jekyll build && node build-sw.js",
         "build:pwa": "node build-sw.js",
