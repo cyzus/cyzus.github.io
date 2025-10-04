@@ -1,63 +1,70 @@
-[Hux Blog](https://huangxuan.me)
-================================
+# My Personal Blog
 
-> I never expect this becomes popular.
+This is the source code for my personal blog using Hux Blog's Jekyll theme, built with Jekyll and hosted on GitHub Pages.
 
-![](http://huangxuan.me/img/blog-desktop.jpg)
+## Creating a New Post
 
+1.  **Create a new file** in the `_posts` directory.
+2.  **Name the file** using the format `YYYY-MM-DD-your-post-title.markdown`.
+3.  **Add the following front matter** to the top of the file:
 
-[User Manual 👉](_doc/Manual.md)
---------------------------------------------------
+    ```yaml
+    ---
+    layout: post
+    title: "Your Post Title"
+    date: YYYY-MM-DD HH:MM:SS +0000
+    tags: [tag1, tag2]
+    ---
+    ```
 
-### Getting Started
+4.  **Write your post** in Markdown below the front matter.
 
-1. You will need [Ruby](https://www.ruby-lang.org/en/) and [Bundler](https://bundler.io/) to use [Jekyll](https://jekyllrb.com/). Following [Using Jekyll with Bundler](https://jekyllrb.com/tutorials/using-jekyll-with-bundler/) to fullfill the enviromental requirement.
+**Example:**
 
-2. Installed dependencies in the `Gemfile`:
+`_posts/2025-10-04-hello-world.markdown`
 
-```sh
-$ bundle install 
+```markdown
+---
+layout: post
+title: "Hello World"
+date: 2025-10-04 10:00:00 +0000
+tags: [greeting, example]
+---
+
+This is my first post!
 ```
 
-3. Serve the website (`localhost:4000` by default):
+## Local Development
 
-```sh
-$ bundle exec jekyll serve  # alternatively, npm start
+To preview your changes locally before deploying, you'll need to have the following dependencies installed:
+
+*   [Ruby](https://www.ruby-lang.org/en/) and [Bundler](https://bundler.io/)
+*   [Node.js](https://nodejs.org/) and [Grunt](https://gruntjs.com/)
+
+Once you have the dependencies installed, follow these steps:
+
+1.  **Install Ruby Dependencies:**
+    ```bash
+    bundle install
+    ```
+
+2.  **Install Node.js Dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Start the Local Server:**
+    ```bash
+    npm start
+    ```
+    This will start a local server at `http://localhost:4000`.
+
+## Deployment
+
+This blog is hosted on GitHub Pages. To deploy any changes, simply push your commits to the `main` branch:
+
+```bash
+git push origin main
 ```
 
-### Development (Build From Source)
-
-To modify the theme, you will need [Grunt](https://gruntjs.com/). There are numbers of tasks you can find in the `Gruntfile.js`, includes minifing JavaScript, compiling `.less` to `.css`, adding banners to keep the Apache 2.0 license intact, watching for changes, etc. 
-
-Yes, they were inherited and are extremely old-fashioned. There is no modularization and transpilation, etc.
-
-Critical Jekyll-related code are located in `_include/` and `_layouts/`. Most of them are [Liquid](https://github.com/Shopify/liquid/wiki) templates.
-
-This theme uses the default code syntax highlighter of jekyll, [Rouge](http://rouge.jneen.net/), which is compatible with Pygments theme so just pick any pygments theme css (e.g. from [here](http://jwarby.github.io/jekyll-pygments-themes/languages/javascript.html) and replace the content of `highlight.less`.
-
-
-### Interesting to know more? Checkout the [full user manual](_doc/Manual.md)!
-
-
-Other Resources
----------------
-
-Ports
-- [**Hexo**](https://github.com/Kaijun/hexo-theme-huxblog) by @kaijun
-- [**React-SSR**](https://github.com/LucasIcarus/huxpro.github.io/tree/ssr) by @LucasIcarus
-
-[Starter/Boilerplate](https://github.com/huxpro/huxblog-boilerplate)
-- Out of date. Helps wanted for updating it on par with the main repo
-
-Translation
-- [🇨🇳  中文文档（有点过时）](https://github.com/Huxpro/huxpro.github.io/blob/master/_doc/README.zh.md)
-
-
-License
--------
-
-Apache License 2.0.
-Copyright (c) 2015-present Huxpro
-
-Hux Blog is derived from [Clean Blog Jekyll Theme (MIT License)](https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll/)
-Copyright (c) 2013-2016 Blackrock Digital LLC.
+GitHub Pages will automatically build and deploy your site.
