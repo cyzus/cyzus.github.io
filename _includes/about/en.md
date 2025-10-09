@@ -2,7 +2,7 @@ CHI YIZHOU 池一舟
 
 I am a PhD candidate @ University of Cambridge. I am supervised by [Andreas Vlachos](https://andreasvlachos.github.io/). 
 
-Previously, I obtained my M.S. in EECS and B.S. in Computer Science and Cognitive Science from UC Berkeley, where I was advised by [Dan Klein](http://people.eecs.berkeley.edu/~klein/).
+Previously, I obtained my M.S. in EECS and B.A. in Computer Science and Cognitive Science from UC Berkeley, where I was advised by [Dan Klein](http://people.eecs.berkeley.edu/~klein/).
 
 My research interest centers around facilitating meaningful and safe communication between humans and computers through language interaction. This entails developing AI systems capable of comprehending both implicit and explicit meanings conveyed by humans, maintaining long-term coherence in conversations, and continuously improving through self-correction and self-examination.
 
