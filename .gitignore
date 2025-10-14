@@ -9,5 +9,20 @@ node_modules
 *.sh
 .DS_Store
 .jekyll-cache
+.jekyll-metadata
 */.DS_Store
 */*/.DS_Store
+
+# Build artifacts
+css/*.css
+css/*.css.map
+js/*.min.js
+
+# Editor files
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+Thumbs.db

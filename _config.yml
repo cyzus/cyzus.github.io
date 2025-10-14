@@ -1,11 +1,11 @@
 # Site settings
 title: Yizhou Chi
-SEOTitle: Yizhou Chi
+SEOTitle: Yizhou Chi - Personal Blog
 header-img: img/home-bg.jpg
 email: yc697 at cam dot ac dot uk | yizhouchi at berkeley dot edu 
-description: ""
-keyword: ""
-url: "cyzus.github.io" # your host, for absolute URL
+description: "Personal blog of Yizhou Chi - Thoughts on research, technology, and life"
+keyword: "Yizhou Chi, blog, research, technology, AI, machine learning"
+url: "https://cyzus.github.io" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Publish posts or collection documents with a future date.
