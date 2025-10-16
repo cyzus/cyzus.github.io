@@ -7,7 +7,7 @@ Before Cambridge, I completed my M.S. in EECS and B.A. in Computer Science & Cog
 ## Research focus
 
 - Designing interactive language agents that can clarify uncertainty, self-correct, and remain aligned with user goals over time.
-- Combining symbolic search with neural models (e.g., Monte Carlo Tree Search) to make reasoning steps explicit and auditable.
+- Developing reasoning frameworks that help AI build faithful world models and explain their decisions.
 - Studying how people and models co-adapt in conversational settings, with an emphasis on safety, transparency, and evaluation.
 
 ## Publications
