@@ -3,7 +3,7 @@ layout:     post
 title:      "The final station scene in Thrice Upon a Time"
 # subtitle:   " \"Hello World, Hello Blog\""
 date:       2023-07-26 12:00:00
-author:     "Suzy"
+author:     "Yizhou Chi"
 header-img: 
 catalog: false
 # tags:
