@@ -2,9 +2,12 @@
 title: Blog
 layout: page
 description: "初めてあなたを見た、あの日動き出した歯車"
+pagination:
+    enabled: true
 ---
 
-{% for post in paginator.posts %}
+{% assign posts = paginator.posts | default: site.posts %}
+{% for post in posts %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
         <h2 class="post-title">
@@ -31,7 +34,7 @@ description: "初めてあなたを見た、あの日動き出した歯車"
 {% endfor %}
 
 <!-- Pager -->
-{% if paginator.total_pages > 1 %}
+{% if paginator and paginator.total_pages > 1 %}
 <ul class="pager">
     {% if paginator.previous_page %}
     <li class="previous">
