@@ -2,7 +2,7 @@
 title: Yizhou Chi
 SEOTitle: Yizhou Chi - Personal Blog
 header-img: img/home-bg.jpg
-email: yc697 at cam dot ac dot uk | yizhouchi at berkeley dot edu 
+email: yc697 at cam dot ac dot uk
 description: "Personal blog of Yizhou Chi - Thoughts on research, technology, and life"
 keyword: "Yizhou Chi, blog, research, technology, AI, machine learning"
 url: "https://cyzus.github.io" # your host, for absolute URL
@@ -16,9 +16,10 @@ RSS: false
 weibo_username: 
 zhihu_username: 
 github_username: cyzus
-twitter_username: 
+twitter_username: YizhouChi
 #facebook_username:  huxpro
 #linkedin_username:  firstname-lastname-idxxxx
+google_scholar_url: "https://scholar.google.com/citations?user=yrTAyfQAAAAJ&hl"
 
 # Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
@@ -84,7 +85,7 @@ netease_comment: false
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
-sidebar-about-description: "私があなたを愛してたことを、死ぬまで死ぬまで誇りにしたいから"
+sidebar-about-description: "If you'd like to chat about research ideas, collaborations, or mentoring, feel free to reach out."
 sidebar-avatar: https://github.com/cyzus.png # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # Featured Tags
@@ -101,5 +102,5 @@ page-mathjax: false
 # Friends
 friends:
   [
-    { title: "式波・アスカ・ラングレー", href: "https://youtu.be/0Uhh62MUEic" },
+    { title: "One Last Kiss by 式波・アスカ・ラングレー", href: "https://youtu.be/0Uhh62MUEic"},
   ]

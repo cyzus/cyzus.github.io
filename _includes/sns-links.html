@@ -2,6 +2,10 @@
     @param {Boolean} center 
 {% endcomment %}
 
+{% if site.email %}
+{% assign primary_email_obfuscated = site.email | split: '|' | first | strip %}
+{% endif %}
+
 {% if include.center %}
 <ul class="list-inline text-center">
 {% else %}
@@ -68,6 +72,26 @@
     </a>
   </li>
   {% endif %}
+  {% if primary_email_obfuscated %}
+  <li>
+    <a href="#" class="sns-email-link" data-email="{{ primary_email_obfuscated }}" aria-label="Email" role="button">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  {% endif %}
+  {% if site.google_scholar_url %}
+  <li>
+    <a target="_blank" rel="noopener" href="{{ site.google_scholar_url }}" aria-label="Google Scholar">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-graduation-cap fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  {% endif %}
   {% if site.linkedin_username %}
   <li>
     <a target="_blank" href="https://www.linkedin.com/in/{{ site.linkedin_username }}">
@@ -79,3 +103,70 @@
   </li>
   {% endif %}
 </ul>
+
+{% if primary_email_obfuscated %}
+<script>
+(function () {
+  if (typeof window === 'undefined') {
+    return;
+  }
+  if (window.__snsEmailLinkInitialized) {
+    return;
+  }
+  window.__snsEmailLinkInitialized = true;
+
+  function closestEmailLink(node) {
+    while (node && node !== document) {
+      if (node.classList && node.classList.contains('sns-email-link')) {
+        return node;
+      }
+      node = node.parentNode;
+    }
+    return null;
+  }
+
+  function decodeEmail(encoded) {
+    if (!encoded) {
+      return '';
+    }
+    var email = encoded;
+    email = email.replace(/\s*\[at\]\s*/gi, '@');
+    email = email.replace(/\s*\[dot\]\s*/gi, '.');
+    email = email.replace(/\s+at\s+/gi, '@');
+    email = email.replace(/\s+dot\s+/gi, '.');
+    email = email.replace(/\s+/g, '');
+    return email;
+  }
+
+  function activateEmail(anchor) {
+    var encoded = anchor.getAttribute('data-email');
+    var email = decodeEmail(encoded);
+    if (!email) {
+      return;
+    }
+    window.location.href = 'mailto:' + email;
+  }
+
+  document.addEventListener('click', function (event) {
+    var anchor = event.target.closest ? event.target.closest('.sns-email-link') : closestEmailLink(event.target);
+    if (!anchor) {
+      return;
+    }
+    event.preventDefault();
+    activateEmail(anchor);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Enter' && event.key !== ' ' && event.key !== 'Spacebar') {
+      return;
+    }
+    var anchor = event.target.closest ? event.target.closest('.sns-email-link') : closestEmailLink(event.target);
+    if (!anchor) {
+      return;
+    }
+    event.preventDefault();
+    activateEmail(anchor);
+  });
+})();
+</script>
+{% endif %}

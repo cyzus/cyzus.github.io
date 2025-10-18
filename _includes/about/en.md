@@ -43,7 +43,3 @@ Before Cambridge, I completed my M.S. in EECS and B.A. in Computer Science & Cog
 - **Interactive Flock Simulator**  \
 	A real-time flocking visualizer that pairs physics-based animation with intuitive controls.  \
 	[[demo]](https://tianqiyang.github.io/Interactive-Flocking-Simulation-CS-184-Final-Project/final_implementation.html)
-
-
-If you’d like to chat about research ideas, collaborations, or mentoring, feel free to reach out at **yc697 [at] cam [dot] ac [dot] uk**.
-
