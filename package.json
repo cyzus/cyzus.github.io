@@ -1,35 +1,32 @@
 {
-    "name": "cyzus-blog",
-    "title": "Yizhou Chi's Blog",
-    "author": "Yizhou Chi <yc697@cam.ac.uk>",
-    "version": "2.0.0",
-    "homepage": "https://cyzus.github.io",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/cyzus/cyzus.github.io"
-    },
-    "bugs": "https://github.com/cyzus/cyzus.github.io/issues",
-    "devDependencies": {
-        "less": "^4.2.0",
-        "less-plugin-clean-css": "^1.5.1",
-        "terser": "^5.33.0",
-        "autoprefixer": "^10.4.20",
-        "postcss": "^8.4.47",
-        "postcss-cli": "^11.0.0",
-        "npm-run-all": "^4.1.5",
-        "onchange": "^7.1.0",
-        "workbox-build": "^7.3.0"
-    },
-    "scripts": {
-        "start": "bundle exec jekyll serve --skip-initial-build",
-        "dev": "npm run build && npm-run-all --parallel watch:* start",
-        "build": "npm run build:css && npm run build:js && bundle exec jekyll build && npm run build:pwa",
-        "build:css": "lessc less/hux-blog.less css/hux-blog.css && lessc less/hux-blog.less css/hux-blog.min.css --clean-css && npm run build:postcss",
-        "build:postcss": "postcss css/hux-blog.css -o css/hux-blog.css && postcss css/hux-blog.min.css -o css/hux-blog.min.css",
-        "build:js": "terser js/hux-blog.js -o js/hux-blog.min.js -c -m --comments /^!/",
-        "build:pwa": "node build-sw.js",
-        "watch:css": "onchange 'less/**/*.less' -- npm run build:css",
-        "watch:js": "onchange 'js/hux-blog.js' -- npm run build:js",
-        "push": "git push origin main --tag"
-    }
+  "name": "cyzus.github.io",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "framer-motion": "^12.38.0",
+    "front-matter": "^4.0.2",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.13.2",
+    "rehype-raw": "^7.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.4.0",
+    "vite": "^8.0.1"
+  }
 }

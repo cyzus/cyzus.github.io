@@ -1,0 +1,28 @@
+---
+layout:     post
+title:      "The final station scene in Thrice Upon a Time"
+date:       2023-07-26 12:00:00
+author:     "Yizhou Chi"
+header-img: 
+catalog: false
+# tags:
+---
+
+I had been a long-time viewer of the original *Evangelion* series (NGE and EoE) and had seen the first three films of the *Rebuild* (RoE) series, but I hadn't had a chance to see the finale, even though it had been out for two years. After submitting a paper for EMNLP 2023, I finally sat down to watch the final film: *Thrice Upon a Time*. When the closing credits rolled to Utada Hikaru's "One Last Kiss," I still couldn't believe *Evangelion* had truly ended.
+
+さよなら、全てのエヴァンゲリオン. 再见，所有的新世纪福音战士。Goodbye, all of Evangelion.
+
+Before watching the finale myself, I had heard plenty of spoilers about Shinji and Mari becoming the final couple. Honestly, I was prepared to accept this outcome, but I wanted to witness how it unfolded for myself. However, the train station scene left me confused. I looked up various explanations for the ending and was disappointed to find that the consensus was that Shinji, having finally grown up, simply takes Mari's hand and runs out of Ubeshinkawa Station, presumably into a romantic future.
+
+Wait a minute. Despite the station scene, Mari and Shinji only had three significant encounters throughout the entire series (the parachute scene, the scene during Asuka's confession, and the beach rescue). And they abruptly get together?
+
+After rewatching the episode several times and researching other theories, I wanted to summarize my own take on the ending.
+
+The production team poured a lot of effort into that final scene. The common interpretation—that Shinji and Mari get together, or that Shinji finally learns to let go—is merely the most superficial reading, and quite possibly a false one. A closer look reveals subtle details that hint at a different conclusion. I'm not saying it's wrong to think Shinji and Mari are leaving the others behind, but there's more to it. If you look at Ubeshinkawa Station on a map, you'll see that the stairs Shinji and Mari ascend actually lead to the other side of the tracks—where Kaworu, Rei, and Asuka are waiting.
+
+Furthermore, a recurring line in the story is, "Sayonara is a magic word to meet again." At the end, Shinji casts this "magic" by saying "Sayonara" only to Asuka. If Hideaki Anno deliberately imbued this word with special meaning, it's reasonable to believe that Asuka and Shinji are destined to meet again.
+
+Asuka and Shinji's confession in the past tense ("I liked you") doesn't mean their feelings are gone. They said that because they were both heading into a suicide mission. They were acting as mature adults, setting their personal feelings aside—a stark contrast to the TV series, where their unresolved emotions only caused each other pain. In an August 2021 interview, Anno noted: “There’s a gap between what people say in real life and what they truly mean. In animation, unless the characters are intentionally lying, they always say what they mean. I wanted to reverse that: When the characters in ‘Evangelion’ speak, they don’t necessarily say what they mean.” We have every reason to believe that Asuka and Shinji meant more than they said. The "like" was true, but the "used to" was a lie. After all, who would remember someone's bento after 14 years, or keep calling them "Baka," if they didn't still care?
+
+By the final scene, Shinji has grown up. He is ready to meet Asuka as an adult, free to pursue a relationship in a world without EVAs.
+

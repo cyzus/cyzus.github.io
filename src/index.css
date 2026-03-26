@@ -1,0 +1,416 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
+
+:root {
+  --bg-color: #fafafa;
+  --text-color: #0a0a0a;
+  --border-width: 3px;
+  --border-color: #0a0a0a;
+  --shadow-color: #0a0a0a;
+  --grid-color: rgba(0, 0, 0, 0.08);
+  --card-bg: #ffffff;
+  
+  /* Strict Black and White Accents */
+  --accent-yellow: #facc15;
+  --accent-pink: #f5f5f5;
+  --accent-blue: #e5e5e5;
+  --accent-green: #d4d4d4;
+  
+  --shadow-hard: 6px 6px 0px 0px var(--shadow-color);
+  --shadow-hard-hover: 2px 2px 0px 0px var(--shadow-color);
+  
+  --radius: 0px;
+  --transition-fast: 0.15s ease-out;
+}
+
+html.dark {
+  --bg-color: #121212;
+  --text-color: #e5e5e5;
+  --border-color: #333333;
+  --shadow-color: #000000;
+  --grid-color: rgba(255, 255, 255, 0.04);
+  --card-bg: #1e1e1e;
+  
+  --accent-yellow: #e6ac00; /* Brighter matte yellow for dark mode legibility */
+  --accent-pink: #2a2a2a;
+  --accent-blue: #222222;
+  --accent-green: #2a2a2a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  line-height: 1.6;
+  
+  /* Notebook Grid Background */
+  background-image: linear-gradient(var(--grid-color) 2px, transparent 2px), linear-gradient(90deg, var(--grid-color) 2px, transparent 2px);
+  background-size: 30px 30px;
+  background-position: -2px -2px;
+}
+
+/* Base Card */
+.brutal-card {
+  background-color: var(--card-bg);
+  border: var(--border-width) solid var(--border-color);
+  box-shadow: var(--shadow-hard);
+  border-radius: var(--radius);
+  transition: all var(--transition-fast);
+}
+
+.brutal-card.interactive:hover {
+  transform: translate(4px, 4px);
+  box-shadow: var(--shadow-hard-hover);
+}
+
+/* Button Main */
+.brutal-btn {
+  background-color: var(--accent-yellow);
+  color: var(--text-color);
+  border: var(--border-width) solid var(--border-color);
+  box-shadow: 4px 4px 0px 0px var(--shadow-color);
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius);
+}
+
+.brutal-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px var(--shadow-color);
+}
+
+.brutal-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px 0px var(--shadow-color);
+}
+
+/* Button Small */
+.brutal-btn-sm {
+  background-color: var(--card-bg);
+  color: var(--text-color) !important;
+  border: 2px solid var(--border-color);
+  box-shadow: 2px 2px 0px 0px var(--shadow-color);
+  padding: 0.1rem 0.5rem;
+  font-weight: 800;
+  font-size: 0.85em;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+  text-decoration: none !important;
+  display: inline-block;
+}
+
+.brutal-btn-sm:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px 0px var(--shadow-color);
+  background-color: var(--accent-yellow);
+  color: #000 !important;
+}
+
+.brutal-btn-sm:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px 0px var(--shadow-color);
+}
+
+/* Layout Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+}
+
+a.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: var(--border-width);
+  bottom: -4px;
+  left: 0;
+  background-color: var(--text-color);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+a.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Markdown Enhancements */
+.markdown-content h1, .markdown-content h2, .markdown-content h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.markdown-content p {
+  margin-bottom: 1.5rem;
+}
+.markdown-content a {
+  color: var(--text-color);
+  text-decoration: none;
+  border-bottom: 2px solid var(--text-color);
+  font-weight: 800;
+  transition: all 0.1s ease-out;
+}
+.markdown-content a:hover {
+  background-color: var(--accent-yellow);
+  color: #000;
+}
+.markdown-content u {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 3px;
+  font-weight: 800;
+}
+.markdown-content pre {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  padding: 1rem;
+  border-radius: var(--radius);
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  border: var(--border-width) solid var(--border-color);
+  box-shadow: 4px 4px 0px 0px var(--shadow-color);
+}
+.markdown-content code {
+  font-family: monospace;
+  background-color: var(--accent-blue);
+  color: var(--text-color);
+  padding: 0.2rem 0.4rem;
+  font-size: 0.9em;
+}
+.markdown-content pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+}
+.markdown-content blockquote {
+  border-left: 4px solid var(--accent-yellow);
+  padding-left: 1rem;
+  margin-left: 0;
+  font-style: italic;
+  color: var(--text-color);
+  background-color: var(--accent-pink);
+  padding: 1rem;
+  box-shadow: 2px 2px 0px 0px var(--shadow-color);
+}
+
+/* Terminal / Academic Styles */
+.markdown-content h2 {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.6rem;
+  border-bottom: 4px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem !important;
+  text-transform: uppercase;
+  margin-top: 3rem !important;
+}
+.markdown-content h2::before {
+  content: "> ";
+  color: var(--text-color);
+}
+.terminal-header {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.5rem;
+  border-bottom: 4px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+.tag {
+  border: 2px solid var(--border-color);
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
+  background: var(--text-color);
+  color: var(--card-bg);
+  font-family: 'Fira Code', monospace;
+  font-weight: 700;
+  display: inline-block;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Sidebar vertical divider — only shown on mobile, hidden on desktop */
+.sidebar-vdivider {
+  display: none;
+}
+
+/* Responsive Device Rendering */
+.layout-wrapper {
+  flex-direction: row;
+}
+
+@media screen and (max-width: 900px) {
+  .layout-wrapper {
+    flex-direction: column !important;
+  }
+
+  /* Sidebar: single tight horizontal row, no wrapping */
+  .sidebar {
+    width: 100% !important;
+    position: static !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0;
+    padding: 0 !important;
+  }
+
+  /* Hide the big square avatar */
+  .sidebar-avatar {
+    display: none !important;
+  }
+
+  /* Name only (no tagline) on the left */
+  .sidebar-identity {
+    padding: 0.6rem 1rem !important;
+    flex-shrink: 0;
+    border-bottom: none !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .sidebar-identity h3 {
+    font-size: 0.95rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Hide the tagline on mobile — not enough room */
+  .sidebar-identity p {
+    display: none !important;
+  }
+
+  /* Short centered vertical divider between sidebar sections */
+  .sidebar-vdivider {
+    display: block !important;
+    width: var(--border-width);
+    height: 32px;
+    background-color: var(--border-color);
+    flex-shrink: 0;
+    align-self: center;
+    opacity: 0.5;
+  }
+
+  /* Social links: icon-only compact buttons, no flex-grow */
+  .sidebar-social {
+    padding: 0.5rem 0.6rem !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+    gap: 0.35rem !important;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border-bottom: none !important;
+    align-items: center;
+  }
+
+  /* Social link anchors become compact square icon buttons */
+  .sidebar-social a {
+    padding: 0.35rem !important;
+    gap: 0 !important;
+    min-width: 0;
+    flex-shrink: 0;
+    box-shadow: 2px 2px 0px 0px var(--shadow-color) !important;
+  }
+
+  /* Hide text labels — icon only on mobile */
+  .sidebar-social-label {
+    display: none !important;
+  }
+
+  /* Currently block: takes remaining width, sat right next to social icons */
+  .sidebar-currently {
+    margin: 0.4rem 0.6rem !important;
+    padding: 0.35rem 0.5rem !important;
+    flex: 1;
+    min-width: 0;
+    align-self: center;
+  }
+
+  .sidebar-currently p:first-child {
+    font-size: 0.6rem !important;
+    margin-bottom: 0.15rem !important;
+  }
+
+  .sidebar-currently p:last-child {
+    font-size: 0.65rem !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Hide decorative dividers */
+  .sidebar-divider {
+    display: none !important;
+  }
+
+  .site-header {
+    flex-direction: column !important;
+    justify-content: center !important;
+    text-align: center;
+  }
+  h1 {
+    font-size: 2.2rem !important;
+  }
+  .brutal-card {
+    padding: 1.5rem !important;
+  }
+  /* Tighten hero buttons on mobile — shorter text fits on fewer rows */
+  .brutal-btn {
+    font-size: 0.78rem !important;
+    padding: 0.35rem 0.6rem !important;
+    letter-spacing: 0.02em !important;
+  }
+  .terminal-header {
+    font-size: 1.2rem;
+  }
+
+  /* About Card Layout on Mobile */
+  .about-card {
+    flex-direction: column !important;
+  }
+  .about-image-panel {
+    width: 100% !important;
+    height: 180px;
+    border-right: none !important;
+    border-bottom: var(--border-width) solid var(--border-color);
+  }
+  .about-text-panel {
+    padding: 1.5rem !important;
+  }
+}
+
+/* Blinking cursor animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Venue tag variant — yellow highlight for conference/year tags */
+.tag.tag-venue {
+  background-color: var(--accent-yellow);
+  color: #000;
+  border: 2px solid var(--border-color);
+}
+
