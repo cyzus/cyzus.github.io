@@ -7,9 +7,10 @@ export default function Blog() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.3 }}
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -8 }}
+      transition={{ type: 'tween', duration: 0.2, ease: 'easeOut' }}
       style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}
     >
       <h1 style={{ fontSize: '3.5rem', borderBottom: 'var(--border-width) solid var(--border-color)', paddingBottom: '1rem', marginBottom: '0' }}>Blog / Thoughts</h1>
@@ -25,18 +26,20 @@ export default function Blog() {
             const isFeatured = index === 0;
 
             return (
-              <motion.div 
-                key={post.slug} 
-                className="brutal-card interactive" 
+              <motion.div
+                key={post.slug}
+                className="brutal-card interactive"
                 style={{
                   padding: '2rem',
                   backgroundColor: 'var(--card-bg)',
                   color: 'var(--text-color)',
                   borderLeft: isFeatured ? '6px solid var(--accent-yellow)' : 'var(--border-width) solid var(--border-color)',
                 }}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: Math.min(index * 0.1, 0.5) }}
+                transition={{ type: 'tween', duration: 0.28, ease: 'easeOut', delay: Math.min(index * 0.09, 0.45) }}
+                whileHover={{ x: 4, y: 4, transition: { type: 'tween', duration: 0.08 } }}
+                whileTap={{ x: 6, y: 6, transition: { type: 'tween', duration: 0.05 } }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem', flexWrap: 'wrap' }}>
                   <span style={{ fontWeight: 800, fontFamily: 'monospace', fontSize: '0.85rem', backgroundColor: 'var(--text-color)', color: 'var(--bg-color)', padding: '0.2rem 0.5rem' }}>

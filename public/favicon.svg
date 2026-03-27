@@ -1,8 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- Dark background square -->
-  <rect width="32" height="32" rx="6" fill="#0a0a0a"/>
-  <!-- Yellow accent bar on left -->
-  <rect x="4" y="4" width="4" height="24" rx="1" fill="#f5c800"/>
-  <!-- "YC" monogram - Y -->
-  <text x="11" y="23" font-family="monospace" font-weight="900" font-size="18" fill="#ffffff">Y</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#6BA3BE" />
+  <rect x="252" y="380" width="8" height="132" fill="#C62828" />
+  <g transform="translate(256, 256)">
+    <!-- Top-left facet -->
+    <path d="M0 -140 L-140 0 L0 0 Z" fill="#1A237E" />
+    <!-- Top-right facet -->
+    <path d="M0 -140 L140 0 L0 0 Z" fill="#3949AB" />
+    <!-- Bottom-left facet -->
+    <path d="M0 140 L-140 0 L0 0 Z" fill="#0D47A1" />
+    <!-- Bottom-right facet -->
+    <path d="M0 140 L140 0 L0 0 Z" fill="#283593" />
+    <!-- Center white lines for a crisp diamond look -->
+    <path d="M-140 0 L140 0 M0 -140 L0 140" stroke="white" stroke-width="4" stroke-opacity="0.2" fill="none" />
+  </g>
 </svg>

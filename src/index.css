@@ -36,6 +36,11 @@ html.dark {
   --accent-green: #2a2a2a;
 }
 
+html {
+  /* Always reserve scrollbar gutter — prevents layout shift during page transitions */
+  scrollbar-gutter: stable;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -65,7 +70,6 @@ body {
 }
 
 .brutal-card.interactive:hover {
-  transform: translate(4px, 4px);
   box-shadow: var(--shadow-hard-hover);
 }
 
