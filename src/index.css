@@ -272,96 +272,90 @@ a.nav-link:hover::after {
     flex-direction: column !important;
   }
 
-  /* Sidebar: single tight horizontal row, no wrapping */
+  /* Sidebar: stack content on mobile to avoid overflow */
   .sidebar {
     width: 100% !important;
     position: static !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap;
-    align-items: center;
+    flex-direction: column !important;
+    align-items: stretch;
     gap: 0;
     padding: 0 !important;
+    top: auto !important;
+    height: auto !important;
   }
 
-  /* Hide the big square avatar */
+  /* Keep avatar visible but shorter for mobile */
   .sidebar-avatar {
-    display: none !important;
+    display: flex !important;
+    aspect-ratio: auto !important;
+    height: 150px;
   }
 
-  /* Name only (no tagline) on the left */
+  /* Restore identity block layout */
   .sidebar-identity {
-    padding: 0.6rem 1rem !important;
-    flex-shrink: 0;
+    padding: 1rem 1rem 0 !important;
     border-bottom: none !important;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: block !important;
   }
 
   .sidebar-identity h3 {
-    font-size: 0.95rem !important;
-    margin-bottom: 0 !important;
+    font-size: 1rem !important;
+    margin-bottom: 0.45rem !important;
   }
 
-  /* Hide the tagline on mobile — not enough room */
+  /* Keep tagline visible for readability */
   .sidebar-identity p {
+    display: block !important;
+    font-size: 0.8rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Hide mobile divider helper in stacked mode */
+  .sidebar-vdivider {
     display: none !important;
   }
 
-  /* Short centered vertical divider between sidebar sections */
-  .sidebar-vdivider {
-    display: block !important;
-    width: var(--border-width);
-    height: 32px;
-    background-color: var(--border-color);
-    flex-shrink: 0;
-    align-self: center;
-    opacity: 0.5;
-  }
-
-  /* Social links: icon-only compact buttons, no flex-grow */
+  /* Social links wrap naturally */
   .sidebar-social {
-    padding: 0.5rem 0.6rem !important;
+    padding: 1rem !important;
     flex-direction: row !important;
-    flex-wrap: nowrap;
-    gap: 0.35rem !important;
-    flex-shrink: 0;
-    flex-grow: 0;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
     border-bottom: none !important;
-    align-items: center;
+    align-items: stretch;
   }
 
-  /* Social link anchors become compact square icon buttons */
+  /* Social buttons remain compact but readable */
   .sidebar-social a {
-    padding: 0.35rem !important;
-    gap: 0 !important;
-    min-width: 0;
-    flex-shrink: 0;
-    box-shadow: 2px 2px 0px 0px var(--shadow-color) !important;
+    padding: 0.35rem 0.55rem !important;
+    gap: 0.35rem !important;
+    min-width: 44px;
+    box-shadow: 3px 3px 0px 0px var(--shadow-color) !important;
   }
 
-  /* Hide text labels — icon only on mobile */
+  /* Keep labels hidden to avoid crowding */
   .sidebar-social-label {
     display: none !important;
   }
 
-  /* Currently block: takes remaining width, sat right next to social icons */
+  /* Currently block remains full-width and readable */
   .sidebar-currently {
-    margin: 0.4rem 0.6rem !important;
-    padding: 0.35rem 0.5rem !important;
-    flex: 1;
+    margin: 0 1rem 1rem !important;
+    padding: 0.65rem 0.8rem !important;
+    width: auto;
     min-width: 0;
-    align-self: center;
+    align-self: stretch;
   }
 
   .sidebar-currently p:first-child {
-    font-size: 0.6rem !important;
-    margin-bottom: 0.15rem !important;
+    font-size: 0.62rem !important;
+    margin-bottom: 0.3rem !important;
   }
 
   .sidebar-currently p:last-child {
-    font-size: 0.65rem !important;
-    line-height: 1.35 !important;
+    font-size: 0.72rem !important;
+    line-height: 1.45 !important;
   }
 
   /* Hide decorative dividers */
