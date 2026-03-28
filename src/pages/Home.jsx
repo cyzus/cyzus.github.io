@@ -186,7 +186,6 @@ export default function Home() {
               <motion.div
                 key={idx}
                 className="brutal-card interactive suzent-feature-card"
-                style={{ gridColumn: 'span 2' }}
                 variants={itemVariants}
                 {...cardMotionProps}
               >

@@ -424,6 +424,10 @@ a.nav-link:hover::after {
   background-color: var(--card-bg) !important;
   color: var(--text-color) !important;
   border: var(--border-width) solid var(--border-color) !important;
+  padding: 0 !important;
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
 }
 
 .suzent-feature-head {
@@ -522,6 +526,10 @@ a.nav-link:hover::after {
 }
 
 @media screen and (max-width: 680px) {
+  .suzent-feature-card {
+    grid-column: span 1;
+    border-left: var(--border-width) solid var(--border-color) !important;
+  }
   .suzent-feature-head {
     flex-direction: column;
     align-items: flex-start;
@@ -532,6 +540,13 @@ a.nav-link:hover::after {
   .suzent-feature-telemetry span {
     border-right: none;
     border-bottom: var(--border-width) solid var(--border-color);
+  }
+  .suzent-feature-id p {
+    font-size: 0.65rem;
+  }
+  .suzent-feature-heartbeat {
+    width: 100%;
+    text-align: center;
   }
 }
 
