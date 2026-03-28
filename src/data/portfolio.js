@@ -43,6 +43,16 @@ export const publications = [
 
 export const projects = [
   {
+    title: 'Suzent: Digital Coworker',
+    status: 'ACTIVE_DAEMON',
+    description: 'A personalized AI assistant / intelligent agent framework. Suzent manages tasks, synthesizes daily AI research, and ensures the smooth operation of your digital workspace.',
+    isDaemon: true,
+    links: [
+      { label: 'website', url: 'https://suzent.com' },
+      { label: 'code', url: 'https://github.com/cyzus/suzent' }
+    ]
+  },
+  {
     title: 'Among Agents',
     status: 'ACL 2024 Workshop',
     description: 'A text-based social deduction environment for probing how language agents reason under partial information and social pressure.',

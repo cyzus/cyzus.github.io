@@ -418,3 +418,120 @@ a.nav-link:hover::after {
   border: 2px solid var(--border-color);
 }
 
+
+.suzent-feature-card {
+  overflow: hidden;
+  background-color: var(--card-bg) !important;
+  color: var(--text-color) !important;
+  border: var(--border-width) solid var(--border-color) !important;
+}
+
+.suzent-feature-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 1.4rem;
+  border-bottom: var(--border-width) solid var(--border-color);
+  background-color: var(--bg-color);
+  background-image: linear-gradient(var(--grid-color) 2px, transparent 2px), linear-gradient(90deg, var(--grid-color) 2px, transparent 2px);
+  background-size: 20px 20px;
+}
+
+.suzent-feature-id {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.suzent-feature-id img {
+  width: 56px;
+  height: 56px;
+  border: var(--border-width) solid var(--border-color);
+  background-color: var(--text-color);
+  padding: 6px;
+}
+
+.suzent-feature-id h3 {
+  color: var(--text-color);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 900;
+  text-transform: none;
+  margin-bottom: 0.2rem !important;
+  letter-spacing: -0.02em;
+}
+
+.suzent-feature-id p {
+  color: var(--text-color);
+  opacity: 0.7;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.suzent-feature-heartbeat {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #000;
+  background-color: var(--accent-yellow);
+  border: 2px solid var(--border-color);
+  padding: 0.35rem 0.75rem;
+  white-space: nowrap;
+  animation: pulse-fast 2s infinite;
+  box-shadow: 2px 2px 0px var(--shadow-color);
+}
+
+.suzent-feature-telemetry {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-bottom: var(--border-width) solid var(--border-color);
+  background-color: var(--accent-blue);
+}
+
+.suzent-feature-telemetry span {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 0.5rem 0.25rem;
+  border-right: var(--border-width) solid var(--border-color);
+  color: var(--text-color);
+}
+
+.suzent-feature-telemetry span:last-child {
+  border-right: none;
+}
+
+.suzent-feature-body {
+  padding: 1.6rem;
+}
+
+.suzent-feature-body p {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 90%;
+  opacity: 0.9;
+}
+
+@keyframes pulse-fast {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@media screen and (max-width: 680px) {
+  .suzent-feature-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .suzent-feature-telemetry {
+    grid-template-columns: 1fr 1fr;
+  }
+  .suzent-feature-telemetry span {
+    border-right: none;
+    border-bottom: var(--border-width) solid var(--border-color);
+  }
+}
+

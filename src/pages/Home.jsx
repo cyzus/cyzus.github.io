@@ -182,31 +182,63 @@ export default function Home() {
         <motion.h2 className="terminal-header" variants={itemVariants}>[2] Side_Quests.sh</motion.h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
           {projects.map((proj, idx) => (
-            <motion.div
-              key={idx}
-              className="brutal-card interactive"
-              style={{
-                padding: '2rem',
-                backgroundColor: 'var(--card-bg)',
-                color: 'var(--text-color)',
-                borderLeft: idx === 0 ? '6px solid var(--accent-yellow)' : 'var(--border-width) solid var(--border-color)',
-                display: 'flex',
-                flexDirection: 'column',
-              }}
-              variants={itemVariants}
-              {...cardMotionProps}
-            >
-              <h3 style={{ textTransform: 'none', marginBottom: '1rem' }}>{proj.title}</h3>
-              <p style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.8rem', backgroundColor: 'var(--accent-yellow)', color: '#000', padding: '0.3rem 0.6rem', border: '2px solid var(--border-color)', marginBottom: '1rem', width: 'fit-content', fontWeight: 700 }}>
-                {proj.status}
-              </p>
-              <p style={{ flex: 1, marginBottom: '1.5rem', fontWeight: 500 }}>{proj.description}</p>
-              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                {proj.links.map(link => (
-                  <a key={link.url} href={link.url} target="_blank" rel="noreferrer" className="brutal-btn-sm" style={{ backgroundColor: 'var(--card-bg)' }}>{link.label}</a>
-                ))}
-              </div>
-            </motion.div>
+            proj.isDaemon ? (
+              <motion.div
+                key={idx}
+                className="brutal-card interactive suzent-feature-card"
+                style={{ gridColumn: 'span 2' }}
+                variants={itemVariants}
+                {...cardMotionProps}
+              >
+                <div className="suzent-feature-head">
+                  <div className="suzent-feature-id">
+                    <img src="/img/suzent.svg" alt="Suzent" style={{ padding: '6px' }} />
+                    <div>
+                      <h3>{proj.title}</h3>
+                      <p>agentic proxy</p>
+                    </div>
+                  </div>
+                  <span className="suzent-feature-heartbeat">ONLINE // CORE</span>
+                </div>
+
+                <div className="suzent-feature-body">
+                  <p style={{ marginBottom: '1.2rem', fontWeight: 500 }}>{proj.description}</p>
+                  <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                    {proj.links.map(link => (
+                      <a key={link.url} href={link.url} target="_blank" rel="noreferrer" className="brutal-btn-sm" style={{ backgroundColor: link.label === 'website' ? 'var(--accent-yellow)' : 'var(--card-bg)', color: link.label === 'website' ? '#000' : 'var(--text-color)' }}>{link.label}</a>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ) : (
+              <motion.div
+                key={idx}
+                className="brutal-card interactive"
+                style={{
+                  padding: '2rem',
+                  backgroundColor: 'var(--card-bg)',
+                  color: 'var(--text-color)',
+                  borderLeft: 'var(--border-width) solid var(--border-color)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                }}
+                variants={itemVariants}
+                {...cardMotionProps}
+              >
+                <h3 style={{ textTransform: 'none', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  {proj.title}
+                </h3>
+                <p style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.8rem', backgroundColor: 'var(--accent-yellow)', color: '#000', padding: '0.3rem 0.6rem', border: '2px solid var(--border-color)', marginBottom: '1rem', width: 'fit-content', fontWeight: 700 }}>
+                  {proj.status}
+                </p>
+                <p style={{ flex: 1, marginBottom: '1.5rem', fontWeight: 500 }}>{proj.description}</p>
+                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                  {proj.links.map(link => (
+                    <a key={link.url} href={link.url} target={link.url.startsWith('http') ? "_blank" : "_self"} rel="noreferrer" className="brutal-btn-sm" style={{ backgroundColor: 'var(--card-bg)' }}>{link.label}</a>
+                  ))}
+                </div>
+              </motion.div>
+            )
           ))}
         </div>
       </motion.div>
