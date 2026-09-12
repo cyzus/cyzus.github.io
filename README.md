@@ -1,16 +1,42 @@
-# React + Vite
+# chiyz
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Yizhou Chi’s personal website: research, projects, writing, and contact information.
+Built with React and Vite, with a monochrome editorial layout and an interactive WebGL dither effect in the homepage opening.
 
-Currently, two official plugins are available:
+## Local development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Use Node.js 20.19+ or 22.12+.
 
-## React Compiler
+```sh
+npm ci
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Open the local URL printed by Vite. Install dependencies on each computer; do not copy or sync `node_modules` between Windows and macOS.
 
-## Expanding the ESLint configuration
+## Checks and production build
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```sh
+npm run lint
+npm run test:run
+npm run build
+```
+
+The production output is generated in `dist/`. `npm run preview` serves that build locally.
+
+## Editing content
+
+- `src/data/portfolio.js`: publications and projects
+- `src/about/`: English and Chinese biographies
+- `src/posts/`: Markdown essays
+- `src/pages/Contact.jsx`: contact page
+- `src/index.css`: shared styles and opacity/color transitions
+- `src/components/DitherField.jsx`: homepage animation
+
+The theme defaults to the system preference. The header cycles between Auto, Light, and Dark. Interface animations do not translate or scale content; reduced-motion preferences are respected.
+
+## Routing and deployment
+
+Routes use hash URLs (`/#/blog`, `/#/contact`) for GitHub Pages compatibility. Homepage section links use router-aware destinations such as `/#publications` in React Router’s `Link` component.
+
+Pushing to `main` runs lint, tests, and a production build through GitHub Actions, then deploys to GitHub Pages. The custom domain is configured in `public/CNAME`.
