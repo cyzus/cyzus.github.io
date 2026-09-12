@@ -43,9 +43,9 @@ export const publications = [
 
 export const projects = [
   {
-    title: 'Suzent: Digital Coworker',
+    title: 'Suzent: The Sovereign AI Agent',
     status: 'ACTIVE_DAEMON',
-    description: 'A personalized AI assistant / intelligent agent framework. Suzent manages tasks, synthesizes daily AI research, and ensures the smooth operation of your digital workspace.',
+    description: 'An open-source AI agent that runs on infrastructure you control. Keep its memory, skills, and workspace as you switch models, and define the permissions under which it researches, writes, codes, and carries out ongoing work.',
     isDaemon: true,
     links: [
       { label: 'website', url: 'https://suzent.com' },

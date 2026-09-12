@@ -7,7 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Yizhou Chi - PhD researcher at Cambridge, building AI that reasons about the world." />
     <meta name="robots" content="index,follow" />
-    <meta name="theme-color" content="#fafafa" />
+    <meta name="theme-color" content="#f3f3ef" />
+    <script>
+      const darkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.classList.toggle('dark', darkTheme);
+      document.documentElement.style.colorScheme = darkTheme ? 'dark' : 'light';
+      document.querySelector('meta[name="theme-color"]').content = darkTheme ? '#111110' : '#f3f3ef';
+    </script>
 
     <link rel="canonical" href="https://chiyz.xyz/" />
 

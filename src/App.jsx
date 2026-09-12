@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Blog from './pages/Blog';
 import Post from './pages/Post';
 import NotFound from './pages/NotFound';
+import Contact from './pages/Contact';
 
 function App() {
   return (
@@ -13,8 +14,9 @@ function App() {
           <Route index element={<Home />} />
           <Route path="blog" element={<Blog />} />
           <Route path="blog/:slug" element={<Post />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
-        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );

@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 
 const socialLinks = [
   {
@@ -52,7 +51,7 @@ export default function Sidebar() {
 
       {/* Name + Tagline */}
       <div className="sidebar-identity" style={{ padding: '1.5rem 1.5rem 0' }}>
-        <h3 style={{ fontSize: '1.3rem', fontFamily: "'Fira Code', monospace", marginBottom: '0.75rem' }}>{'> Yizhou_Chi'}</h3>
+        <h3 style={{ fontSize: '1.3rem', fontFamily: "'Fira Code', monospace", marginBottom: '0.75rem' }}>{'Yizhou Chi'}</h3>
         <p style={{ fontSize: '0.9rem', fontWeight: 500, color: 'var(--text-color)', opacity: 0.75, lineHeight: 1.5, marginBottom: '1.25rem' }}>
           Building AI that reasons about the world.
         </p>
@@ -67,8 +66,9 @@ export default function Sidebar() {
       {/* Social Links */}
       <div className="sidebar-social" style={{ padding: '1.25rem 1.5rem', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
         {socialLinks.map(({ label, href, icon }) => (
-          <motion.a
+          <a
             key={label}
+            aria-label={label}
             href={href}
             target="_blank"
             rel="noreferrer"
@@ -86,23 +86,10 @@ export default function Sidebar() {
               backgroundColor: 'var(--card-bg)',
               boxShadow: '4px 4px 0px 0px var(--shadow-color)',
             }}
-            whileHover={{ 
-              x: 2, 
-              y: 2, 
-              boxShadow: '2px 2px 0px 0px var(--shadow-color)',
-              backgroundColor: 'var(--accent-yellow)',
-              color: '#000'
-            }}
-            whileTap={{ 
-              x: 4, 
-              y: 4, 
-              boxShadow: '0px 0px 0px 0px var(--shadow-color)' 
-            }}
-            transition={{ type: 'tween', duration: 0.08 }}
           >
             <span style={{ display: 'flex', alignItems: 'center', opacity: 0.8 }}>{icon}</span>
             <span className="sidebar-social-label">{label}</span>
-          </motion.a>
+          </a>
         ))}
       </div>
 

@@ -1,18 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 
 /**
- * A reusable Neo-Brutalist segmented control / slider switch.
- * 
+ * A reusable Neo-Brutalist segmented control switch.
+ *
  * @param {Array} items - List of items { label, value, path? }
  * @param {any} activeValue - The value of the currently active item
  * @param {Function} onChange - (optional) callback for when an item is clicked
- * @param {string} layoutId - Animation ID for Framer Motion (must be unique per switch instance)
  * @param {Object} style - (optional) style for the container
  * @param {string} minWidth - (optional) min-width for each item
  */
-export default function BrutalSwitch({ items, activeValue, onChange, layoutId, style = {}, minWidth = '80px' }) {
+export default function BrutalSwitch({ items, activeValue, onChange, style = {}, minWidth = '80px' }) {
   return (
     <div style={{
       display: 'inline-flex',
@@ -26,7 +24,7 @@ export default function BrutalSwitch({ items, activeValue, onChange, layoutId, s
     }}>
       {items.map((item) => {
         const isActive = item.value === activeValue;
-        
+
         const itemStyles = {
           padding: '0.4rem 1rem',
           fontSize: '1rem',
@@ -47,8 +45,7 @@ export default function BrutalSwitch({ items, activeValue, onChange, layoutId, s
         };
 
         const highlight = isActive && (
-          <motion.div
-            layoutId={layoutId}
+          <div
             style={{
               position: 'absolute',
               inset: 0,
@@ -57,7 +54,6 @@ export default function BrutalSwitch({ items, activeValue, onChange, layoutId, s
               boxShadow: '2px 2px 0px var(--shadow-color)',
               zIndex: -1,
             }}
-            transition={{ type: 'spring', bounce: 0.15, duration: 0.45 }}
           />
         );
 

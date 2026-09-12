@@ -1,36 +1,11 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
-import BrutalSwitch from '../components/BrutalSwitch';
+import DitherField from '../components/DitherField';
 import rehypeRaw from 'rehype-raw';
 import { publications, projects } from '../data/portfolio';
-
 import enContent from '../about/en.md?raw';
 import zhContent from '../about/zh.md?raw';
-
-const VENUE_KEYWORDS = ['2024', '2023', '2022', '2021', '2020', '2019', 'NAACL', 'ACL', 'EMNLP', 'NeurIPS', 'ICML', 'ICLR', 'IEEE', 'AAAI'];
-const isVenueTag = (tag) => VENUE_KEYWORDS.some(k => tag.includes(k));
-
-// ── Brutalist animation variants: snappy, tween, no bounce ──
-const sectionVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.09 } },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 14 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { type: 'tween', duration: 0.28, ease: 'easeOut' },
-  },
-};
-
-// Shared interactive card motion props (brutalist press)
-const cardMotionProps = {
-  whileHover: { x: 4, y: 4, transition: { type: 'tween', duration: 0.08 } },
-  whileTap:   { x: 6, y: 6, transition: { type: 'tween', duration: 0.05 } },
-};
 
 function AuthorList({ authors }) {
   const [expanded, setExpanded] = useState(false);
@@ -69,179 +44,45 @@ function AuthorList({ authors }) {
 
 export default function Home() {
   const [lang, setLang] = useState('en');
-  const content = lang === 'en' ? enContent : zhContent;
-
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0, y: -8 }}
-      transition={{ type: 'tween', duration: 0.15 }}
-      style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}
-    >
-      {/* Hero Card — animate on mount (already in viewport) */}
-      <motion.div
-        className="brutal-card"
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ type: 'tween', duration: 0.28, ease: 'easeOut', delay: 0.05 }}
-        style={{ padding: '3rem', backgroundColor: 'var(--card-bg)' }}
-      >
-        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '1.5rem' }}>
-          <BrutalSwitch
-            items={[
-              { label: 'EN', value: 'en' },
-              { label: '中文', value: 'zh' }
-            ]}
-            activeValue={lang}
-            onChange={setLang}
-            layoutId="lang-active-bg"
-            minWidth="60px"
-            style={{ boxShadow: '4px 4px 0px var(--shadow-color)' }}
-          />
-        </div>
-        <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>
-          Hello, I'm Yizhou.
-          <span style={{ display: 'inline-block', width: '0.08em', height: '1em', backgroundColor: 'var(--text-color)', marginLeft: '0.15em', verticalAlign: 'text-bottom', animation: 'blink 1s step-end infinite' }} />
-        </h1>
-        <p style={{ fontSize: '1.2rem', fontWeight: 600, maxWidth: '600px', marginBottom: '1.5rem' }}>
-          I'm a PhD candidate in Computer Science at the University of Cambridge, building interactive language agents that collaborate safely and effectively with people.
-        </p>
-        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center' }}>
-          <button onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })} className="brutal-btn" style={{ padding: '0.4rem 0.8rem', fontSize: '0.9rem', backgroundColor: 'var(--card-bg)', color: 'var(--text-color)' }}>$ cat about_me.md</button>
-          <button onClick={() => document.getElementById('publications')?.scrollIntoView({ behavior: 'smooth' })} className="brutal-btn" style={{ padding: '0.4rem 0.8rem', fontSize: '0.9rem', backgroundColor: 'var(--accent-yellow)', color: '#000' }}>$ cd ./publications</button>
-          <button onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })} className="brutal-btn" style={{ padding: '0.4rem 0.8rem', fontSize: '0.9rem', backgroundColor: 'var(--card-bg)', color: 'var(--text-color)' }}>$ ls -l projects/</button>
-        </div>
-      </motion.div>
-
-      {/* Bio Section — whileInView stagger */}
-      <motion.div
-        id="about"
-        style={{ marginBottom: '2rem', scrollMarginTop: '100px' }}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-50px' }}
-        variants={sectionVariants}
-      >
-        <motion.h2 className="terminal-header" variants={itemVariants}>[0] About_Me.md</motion.h2>
-        <motion.div className="brutal-card" style={{ padding: '3rem', backgroundColor: 'var(--card-bg)' }} variants={itemVariants}>
-          <div style={{ fontSize: '1.1rem', lineHeight: 1.8 }} className="markdown-content">
-            <ReactMarkdown rehypePlugins={[rehypeRaw]}>{content}</ReactMarkdown>
+    <>
+      <section className="opening" aria-labelledby="site-title">
+        <DitherField />
+        <div className="opening-meta"><span>Researcher / Builder</span><span>Cambridge, UK</span></div>
+        <h1 id="site-title">Yizhou <em>Chi.</em></h1>
+        <div className="opening-grid">
+          <div className="opening-copy">
+            <span className="eyebrow">On minds & machines</span>
+            <h2>Building AI that<br />reasons about<br /><em>the world.</em></h2>
+            <p>I'm a PhD candidate in Computer Science at the University of Cambridge, building interactive language agents that collaborate safely and effectively with people.</p>
+            <Link className="text-link" to="/#publications">Explore the research <span>↓</span></Link>
+            <div className="social-links" aria-label="Social links">
+              <a href="https://github.com/cyzus" target="_blank" rel="noreferrer">GitHub ↗</a>
+              <a href="https://scholar.google.com/citations?user=yrTAyfQAAAAJ&hl" target="_blank" rel="noreferrer">Scholar ↗</a>
+              <a href="https://twitter.com/YizhouChi" target="_blank" rel="noreferrer">X / Twitter ↗</a>
+              <a href="mailto:yc697@cam.ac.uk">Email ↗</a>
+            </div>
           </div>
-        </motion.div>
-      </motion.div>
-
-      {/* Publications Section — whileInView stagger + card press */}
-      <motion.div
-        id="publications"
-        style={{ marginBottom: '2rem', scrollMarginTop: '100px' }}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-50px' }}
-        variants={sectionVariants}
-      >
-        <motion.h2 className="terminal-header" variants={itemVariants}>[1] Selected_Publications.bib</motion.h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-          {publications.map((pub, idx) => (
-            <motion.div
-              key={idx}
-              className="brutal-card interactive"
-              style={{ padding: '2rem', backgroundColor: 'var(--card-bg)' }}
-              variants={itemVariants}
-              {...cardMotionProps}
-            >
-              <div style={{ marginBottom: '1rem' }}>
-                {pub.tags.map(tag => (
-                  <span key={tag} className="tag" style={isVenueTag(tag) ? { backgroundColor: 'var(--accent-yellow)', color: '#000', border: '2px solid var(--border-color)' } : {}}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem', textTransform: 'none' }}>{pub.title}</h3>
-              <AuthorList authors={pub.authors} />
-              <p style={{ marginBottom: '1.5rem', fontWeight: 500 }}>{pub.description}</p>
-              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                {pub.links.map(link => (
-                  <a key={link.url} href={link.url} target="_blank" rel="noreferrer" className="brutal-btn-sm" style={{ backgroundColor: 'var(--card-bg)' }}>{link.label}</a>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+          <figure className="angel-plate">
+            <div className="plate-top"><span>I / THE OBSERVER</span><span aria-hidden="true">✧</span></div>
+            <div className="plate-image"><img src="/img/bg-me.jpeg" alt="A geometric EVA Angel suspended against the sky" /><span className="plate-reticle" aria-hidden="true">+</span></div>
+            <figcaption><span>Between mind and world</span><span aria-hidden="true">I</span></figcaption>
+          </figure>
         </div>
-      </motion.div>
-
-      {/* Projects Section — whileInView stagger + card press */}
-      <motion.div
-        id="projects"
-        style={{ marginBottom: '2rem', scrollMarginTop: '100px' }}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-50px' }}
-        variants={sectionVariants}
-      >
-        <motion.h2 className="terminal-header" variants={itemVariants}>[2] Side_Quests.sh</motion.h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
-          {projects.map((proj, idx) => (
-            proj.isDaemon ? (
-              <motion.div
-                key={idx}
-                className="brutal-card interactive suzent-feature-card"
-                variants={itemVariants}
-                {...cardMotionProps}
-              >
-                <div className="suzent-feature-head">
-                  <div className="suzent-feature-id">
-                    <img src="/img/suzent.svg" alt="Suzent" style={{ padding: '6px' }} />
-                    <div>
-                      <h3>{proj.title}</h3>
-                      <p>agentic proxy</p>
-                    </div>
-                  </div>
-                  <span className="suzent-feature-heartbeat">ONLINE // CORE</span>
-                </div>
-
-                <div className="suzent-feature-body">
-                  <p style={{ marginBottom: '1.2rem', fontWeight: 500 }}>{proj.description}</p>
-                  <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-                    {proj.links.map(link => (
-                      <a key={link.url} href={link.url} target="_blank" rel="noreferrer" className="brutal-btn-sm" style={{ backgroundColor: link.label === 'website' ? 'var(--accent-yellow)' : 'var(--card-bg)', color: link.label === 'website' ? '#000' : 'var(--text-color)' }}>{link.label}</a>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ) : (
-              <motion.div
-                key={idx}
-                className="brutal-card interactive"
-                style={{
-                  padding: '2rem',
-                  backgroundColor: 'var(--card-bg)',
-                  color: 'var(--text-color)',
-                  borderLeft: 'var(--border-width) solid var(--border-color)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                }}
-                variants={itemVariants}
-                {...cardMotionProps}
-              >
-                <h3 style={{ textTransform: 'none', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  {proj.title}
-                </h3>
-                <p style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.8rem', backgroundColor: 'var(--accent-yellow)', color: '#000', padding: '0.3rem 0.6rem', border: '2px solid var(--border-color)', marginBottom: '1rem', width: 'fit-content', fontWeight: 700 }}>
-                  {proj.status}
-                </p>
-                <p style={{ flex: 1, marginBottom: '1.5rem', fontWeight: 500 }}>{proj.description}</p>
-                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                  {proj.links.map(link => (
-                    <a key={link.url} href={link.url} target={link.url.startsWith('http') ? "_blank" : "_self"} rel="noreferrer" className="brutal-btn-sm" style={{ backgroundColor: 'var(--card-bg)' }}>{link.label}</a>
-                  ))}
-                </div>
-              </motion.div>
-            )
-          ))}
-        </div>
-      </motion.div>
-
-    </motion.div>
+        <nav className="section-index" aria-label="On this page"><Link to="/#about"><span>01</span> About</Link><Link to="/#publications"><span>02</span> Research</Link><Link to="/#projects"><span>03</span> Projects</Link></nav>
+      </section>
+      <section id="about" className="archive-section about-section">
+        <div className="section-heading"><span className="eyebrow">01 / The person</span><h2>A little<br /><em>background.</em></h2><div className="language-control" aria-label="Biography language"><button aria-pressed={lang === 'en'} onClick={() => setLang('en')}>EN</button><span>/</span><button aria-pressed={lang === 'zh'} onClick={() => setLang('zh')}>中文</button></div></div>
+        <div key={lang} className="markdown-content biography language-reveal" lang={lang}><ReactMarkdown rehypePlugins={[rehypeRaw]}>{lang === 'en' ? enContent : zhContent}</ReactMarkdown></div>
+      </section>
+      <section id="publications" className="archive-section">
+        <div className="section-heading wide-heading"><div><span className="eyebrow">02 / Inquiries</span><h2>Selected <em>research.</em></h2></div><span className="section-count">{String(publications.length).padStart(2, '0')} works</span></div>
+        <div className="publication-list">{publications.map((pub, index) => <article className="publication" key={pub.title}><div className="publication-meta"><span className="work-number">{String(index + 1).padStart(2, '0')}</span><span>{pub.tags[0]}</span></div><div className="publication-copy"><h3>{pub.title}</h3><AuthorList authors={pub.authors} /><p>{pub.description}</p><div className="work-links">{pub.links.map(link => <a key={link.url} href={link.url} target="_blank" rel="noreferrer">{link.label} ↗</a>)}</div></div></article>)}</div>
+      </section>
+      <section id="projects" className="archive-section">
+        <div className="section-heading wide-heading"><div><span className="eyebrow">03 / Experiments</span><h2>Things <em>I've built.</em></h2></div><span aria-hidden="true" className="section-symbol">✳</span></div>
+        <div className="project-list">{projects.map((project, index) => <article className="project" key={project.title}><span className="eyebrow">{String(index + 1).padStart(2, '0')} / {project.isDaemon ? 'Active project' : project.status}</span><h3>{project.title}</h3><p>{project.description}</p><div className="work-links">{project.links.map(link => <a key={link.url} href={link.url} target="_blank" rel="noreferrer">{link.label} ↗</a>)}</div></article>)}</div>
+      </section>
+    </>
   );
 }

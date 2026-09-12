@@ -27,7 +27,7 @@ describe('Post page', () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByRole('heading', { name: /404 - Post Not Found/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Post not found/i })).toBeInTheDocument();
   });
 
   it('renders a valid post and calculated reading time', () => {
