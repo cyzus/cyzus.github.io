@@ -5,6 +5,7 @@ void main() { gl_Position = vec4(position, 0., 1.); }`;
 
 const fragment = `precision mediump float;
 uniform vec2 resolution;
+uniform vec4 clipBounds;
 uniform vec2 pointer;
 uniform float time;
 uniform float influence;
@@ -48,6 +49,12 @@ void main() {
   // On paper, fewer darker marks keep the field airy and its contours distinct.
   float inkDensity = smoothstep(.025,.31,density)*.38;
   density = mix(density,inkDensity,lightMode);
+  // Fade the field before the containing section clips it, including its overscan.
+  vec2 screen = gl_FragCoord.xy / resolution;
+  vec2 feather = min(vec2(.14), vec2(140.) / resolution);
+  vec2 enter = smoothstep(clipBounds.xy, clipBounds.xy + feather, screen);
+  vec2 leave = 1. - smoothstep(clipBounds.zw - feather, clipBounds.zw, screen);
+  density *= enter.x * enter.y * leave.x * leave.y;
   float dotOn = step(bayer8(pixel)+.008,density);
   gl_FragColor = vec4(vec3(1.), dotOn);
 }`;
@@ -95,7 +102,7 @@ export default function DitherField() {
       cleanupGPU();
       return;
     }
-    const uniforms = Object.fromEntries(['resolution','pointer','time','influence','lightMode','ripples[0]'].map(name => [name, gl.getUniformLocation(program, name)]));
+    const uniforms = Object.fromEntries(['resolution','clipBounds','pointer','time','influence','lightMode','ripples[0]'].map(name => [name, gl.getUniformLocation(program, name)]));
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
     let time = 0, last = 0, strength = 0, targetStrength = 0, nextRipple = 0;
     const target = [.7, .5], pointer = [.7, .5];
@@ -132,10 +139,18 @@ export default function DitherField() {
     };
     const resize = () => {
       // CSS-pixel resolution avoids excessive work on high-DPI screens.
-      const { width, height } = canvas.getBoundingClientRect();
+      const canvasRect = canvas.getBoundingClientRect();
+      const surfaceRect = surface.getBoundingClientRect();
+      const { width, height } = canvasRect;
       canvas.width = Math.max(1, Math.min(width, 1920));
       canvas.height = Math.max(1, Math.round(height*canvas.width/Math.max(1,width)));
       gl.viewport(0,0,canvas.width,canvas.height);
+      gl.uniform4f(uniforms.clipBounds,
+        Math.max(0, (surfaceRect.left - canvasRect.left) / Math.max(1, width)),
+        Math.max(0, (canvasRect.bottom - surfaceRect.bottom) / Math.max(1, height)),
+        Math.min(1, (surfaceRect.right - canvasRect.left) / Math.max(1, width)),
+        Math.min(1, (canvasRect.bottom - surfaceRect.top) / Math.max(1, height)));
+
       sync();
     };
     const coordinates = event => {
