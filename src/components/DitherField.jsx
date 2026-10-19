@@ -3,7 +3,11 @@ import React, { useEffect, useRef } from 'react';
 const vertex = `attribute vec2 position;
 void main() { gl_Position = vec4(position, 0., 1.); }`;
 
-const fragment = `precision mediump float;
+const fragment = `#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
+precision mediump float;
+#endif
 uniform vec2 resolution;
 uniform vec4 clipBounds;
 uniform vec2 pointer;
@@ -23,7 +27,8 @@ float field(vec2 p) {
   for(int i=0;i<4;i++) { n += amplitude*noise(p); p = mat2(.8,-.6,.6,.8)*p*2.03+4.7; amplitude *= .5; }
   return n;
 }
-float bayer2(vec2 p) { p=floor(p); return fract(p.x*.5+p.y*p.y*.75); }
+// Only parity matters. Bound coordinates before squaring to avoid precision loss.
+float bayer2(vec2 p) { p=mod(floor(p),2.); return fract(p.x*.5+p.y*p.y*.75); }
 float bayer8(vec2 p) { return bayer2(p)+bayer2(p*.5)*.25+bayer2(p*.25)*.0625; }
 void main() {
   vec2 pixel = floor(gl_FragCoord.xy/2.);
@@ -56,7 +61,8 @@ void main() {
   vec2 leave = 1. - smoothstep(clipBounds.zw - feather, clipBounds.zw, screen);
   density *= enter.x * enter.y * leave.x * leave.y;
   float dotOn = step(bayer8(pixel)+.008,density);
-  gl_FragColor = vec4(vec3(1.), dotOn);
+  // The canvas uses premultiplied alpha: transparent pixels must have zero RGB.
+  gl_FragColor = vec4(vec3(dotOn), dotOn);
 }`;
 
 export default function DitherField() {
@@ -66,7 +72,7 @@ export default function DitherField() {
     const surface = canvas.parentElement;
     // Keep the site fully usable when GPU rendering is unavailable.
     if (!window.matchMedia) return;
-    const gl = canvas.getContext('webgl', { alpha: true, antialias: false, depth: false, powerPreference: 'low-power' });
+    const gl = canvas.getContext('webgl', { alpha: true, premultipliedAlpha: true, antialias: false, depth: false, powerPreference: 'low-power' });
     if (!gl) return;
     const shaders = [];
     let program;
